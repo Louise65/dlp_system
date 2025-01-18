@@ -62,6 +62,17 @@
     logsTable.draw();
   });
 
+  let currentDate = new Date().toJSON().slice(0, 10);
+
+  document.addEventListener('DOMContentLoaded', function() {
+    $('#set-date').val(currentDate);
+  }, false);
+
+  $(document).ready(function() {
+    logsTable.search(currentDate).draw();
+  })
+
+  //change table result on change of date
   $('#set-date').on('change', function() {
     logsTable.search(this.value).draw();
   });
